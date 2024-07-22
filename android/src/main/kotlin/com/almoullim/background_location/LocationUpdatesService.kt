@@ -153,11 +153,9 @@ class LocationUpdatesService : Service() {
 
         val filter = IntentFilter()
         filter.addAction(STOP_SERVICE)
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            registerReceiver(broadcastReceiver, filter, RECEIVER_NOT_EXPORTED)
-        } else {
-            registerReceiver(broadcastReceiver, filter)
-        }
+           
+            registerReceiver(broadcastReceiver, filter, RECEIVER_EXPORTED)
+        
 
 
         updateNotification() // to start the foreground service
